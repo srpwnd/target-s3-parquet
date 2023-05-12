@@ -80,6 +80,9 @@ class S3ParquetSink(BatchSink):
 
         full_path = f"{self.config.get('s3_path')}/{self.config.get('athena_database')}/{self.stream_name}"
 
+        if self.config.get("endpoint_url") is None:
+            wr.config.s3_endpoint_url = self.config.get("endpoint_url")
+
         wr.s3.to_parquet(
             df=df,
             index=False,
