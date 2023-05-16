@@ -17,15 +17,16 @@ class TargetS3Parquet(Target):
             description="The s3 path to the target output file",
             required=True,
         ),
-        th.Property("aws_access_key_id", th.StringType, default=None),
+        th.Property("aws_access_key_id", th.StringType, default=None, required=False),
         th.Property(
             "aws_secret_access_key",
             th.StringType,
             default=None,
+            required=False,
         ),
-        th.Property("athena_database", th.StringType, default=None),
-        th.Property("add_record_metadata", th.BooleanType, default=None),
-        th.Property("stringify_schema", th.BooleanType, default=None),
-        th.Property("endpoint_url", th.StringType, default=None),
+        th.Property("athena_database", th.StringType, default=None, required=False),
+        th.Property("add_record_metadata", th.BooleanType, default=None, required=False),
+        th.Property("stringify_schema", th.BooleanType, default=None, required=False),
+        th.Property("endpoint_url", th.StringType, default=None, required=False),
     ).to_dict()
     default_sink_class = S3ParquetSink
