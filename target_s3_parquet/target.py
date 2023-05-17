@@ -24,7 +24,7 @@ class TargetS3Parquet(Target):
             default=None,
             required=False,
         ),
-        th.Property("athena_database", th.StringType, default=None, required=False),
+        th.Property("athena_database", th.StringType, default="", required=False),
         th.Property("add_record_metadata", th.BooleanType, default=None, required=False),
         th.Property("stringify_schema", th.BooleanType, default=None, required=False),
         th.Property("endpoint_url", th.StringType, default=None, required=False),

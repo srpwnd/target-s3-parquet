@@ -87,7 +87,7 @@ class S3ParquetSink(BatchSink):
             compression="gzip",
             dataset=True,
             path=full_path,
-            database=self.config.get("athena_database"),
+            database=self.config.get("athena_database", ""),
             table=self.stream_name,
             mode="append",
             partition_cols=["_sdc_started_at"],
